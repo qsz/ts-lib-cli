@@ -2,6 +2,7 @@
   "name": "ts-lib-cli",
   "version": "0.1.0",
   "description": "基于typescript-library-starter的一个用于创建typescript库的脚手架",
+  "keywords": [],
   "main": "bin/cli.js",
   "engines": {
     "node": ">=8.0.0"
@@ -15,5 +16,9 @@
   },
   "devDependencies": {},
   "author": "xujunjie <871464310@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qsz/ts-lib-cli"
+  },
   "license": "MIT"
 }
