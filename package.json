@@ -1,6 +1,6 @@
 {
   "name": "start-tslib",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "基于typescript-library-starter的一个用于创建typescript库的脚手架",
   "keywords": [],
   "main": "bin/cli.js",

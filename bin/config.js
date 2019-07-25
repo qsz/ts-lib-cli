@@ -85,8 +85,9 @@ const ncu_dependencies = {
     pkgOther: ''
 }
 
-const programPath = path.resolve(__dirname, '../', 'program') // 绝对路径
-const currentPath = './'                                      // 相对路径
+const programPath = path.resolve(__dirname, '../', 'program') // 模版路径
+const currentPath = process.cwd()                             // cli路径
+console.log(process.cwd())
 
 module.exports = {
     libDependencies: {

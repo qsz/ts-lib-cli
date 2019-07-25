@@ -4,7 +4,7 @@ const program = require('commander');
 const inquirer = require('inquirer');
 const path = require('path');
 const { readFileSync, writeFileSync } = require("fs");
-const { copyFile, copyDir, readDir, mkDir, writeFile, readFile } = require('./util.js');
+const { copyFile, copyDir, readDir, mkDir, readFile } = require('./util.js');
 const { libDependencies, programPath, currentPath } = require('./config');
 const pkg = JSON.parse(
   readFileSync(path.resolve(__dirname, "../", "package.json"))
@@ -61,9 +61,9 @@ async function prompt(answers) {
     try {
         const programName = answers.name
         const libs = answers.lib.concat(['basis'])
-        const currentProgramPath = `${currentPath}${programName}`       // cli项目地址，相对路径
-        const programPackagePath =  path.resolve(programPath, './package.json')  // 模版package 地址
-        const currentPackagePath = `${currentProgramPath}/package.json` // clipackage 地址，相对路径
+        const currentProgramPath = path.resolve(currentPath, '.', programName)          // cli项目地址，相对路径
+        const programPackagePath =  path.resolve(programPath, './package.json')         // 模版package 地址
+        const currentPackagePath = path.resolve(currentProgramPath, './package.json')   // clipackage 地址，相对路径
         let programPkg = JSON.parse( await readFile(programPackagePath))
         await mkDir(currentProgramPath)
         const files = await readDir(programPath);
@@ -74,17 +74,17 @@ async function prompt(answers) {
             const { dirs, files, pkgJson = {}, pkgOther = {} } = libDependencies[`${lib}_dependencies`];
             if(dirs) { // 需要的文件夹
                 for(const dir of dirs){
-                    const dirPath = path.resolve(programPath, '.', dir);   // 模版dir路径
+                    const dirPath = path.resolve(programPath, '.', dir);                                // 模版dir路径
                     const dirFiles = await readDir(dirPath);
                     const dirname = path.basename(dirPath);
-                    const currentDependenciesPath = `${currentProgramPath}/${dirname}`  // cli dir路径
+                    const currentDependenciesPath =  path.resolve(currentProgramPath, '.', dirname);    // cli dir路径
                     await mkDir(currentDependenciesPath)
                     await copyDir(dirFiles, dirPath, currentDependenciesPath)
                 }
             } 
             if(files) { // 需要的文件
                 for(const file of files) {
-                    await copyFile(path.resolve(programPath, '.', file), `${currentProgramPath}/${file}`)
+                    await copyFile(path.resolve(programPath, '.', file), path.resolve(currentProgramPath, '.', file))
                 }
             }
             if(pkgJson || pkgOther) {
