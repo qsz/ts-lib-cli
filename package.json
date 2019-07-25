@@ -1,0 +1,19 @@
+{
+  "name": "ts-lib-cli",
+  "version": "0.1.0",
+  "description": "基于`typescript-library-starter`的一个用于创建typescript库的脚手架",
+  "main": "bin/cli.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "bin": {
+    "tlc": "bin/cli.js"
+  },
+  "dependencies": {
+    "commander": "^2.20.0",
+    "inquirer": "^6.5.0"
+  },
+  "devDependencies": {},
+  "author": "xujunjie <871464310@qq.com>",
+  "license": "MIT"
+}
