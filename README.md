@@ -1,4 +1,4 @@
-## 基于`typescript-library-starter`的一个用于创建typescript库的脚手架
+## 基于typescript-library-starter的一个用于创建typescript库的脚手架
 
 ### 参考：
 https://github.com/alexjoverm/typescript-library-starter
@@ -20,7 +20,9 @@ https://github.com/alexjoverm/typescript-library-starter
 * Conventional changelog
 * TypeDoc
 
-### 使用
+### 安装使用
+> npm install ts-lib-cli -g
+
 > tlc                   自定义创建项目
 
 > tlc --f               快速创建项目(包含所有工具库)

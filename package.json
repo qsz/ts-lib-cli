@@ -1,10 +1,10 @@
 {
   "name": "ts-lib-cli",
   "version": "0.1.0",
-  "description": "基于`typescript-library-starter`的一个用于创建typescript库的脚手架",
+  "description": "基于typescript-library-starter的一个用于创建typescript库的脚手架",
   "main": "bin/cli.js",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "bin": {
     "tlc": "bin/cli.js"
