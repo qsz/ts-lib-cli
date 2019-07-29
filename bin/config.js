@@ -7,7 +7,11 @@ const basis_dependencies = {
     dirs: [resolve('src'), resolve('tools')],
     files: [],
     pkgJson: '',
-    pkgOther: ''
+    pkgOther: {
+        files: [
+            "dist"
+        ]
+    }
 }
 
 const parcel_dependencies = {

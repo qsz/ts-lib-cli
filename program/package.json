@@ -5,9 +5,6 @@
   "main": "dist/--libraryname--.umd.js",
   "module": "dist/--libraryname--.es5.js",
   "typings": "dist/types/--libraryname--.d.ts",
-  "files": [
-    "dist"
-  ],
   "author": "--username-- <--usermail-->",
   "repository": {
     "type": "git",
