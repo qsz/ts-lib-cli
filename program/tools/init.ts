@@ -9,7 +9,8 @@ const { readFileSync, writeFileSync } = require("fs")
 
 // Note: These should all be relative to the project root directory
 const rmFiles = [
-  "tools/init.ts"
+  "tools/init.ts",
+  "tools/gitignore.txt"
 ]
 const modifyFiles = [
   "LICENSE",
@@ -61,11 +62,22 @@ function setupLibrary(libraryName: string) {
     usermail = exec("git config user.email").stdout.trim()
     console.log("\n")
   } 
+  createGitignore()
   removeItems()
   modifyContents(libraryName, username, usermail)
   renameItems(libraryName)
   finalize()
   console.log(colors.cyan("OK, you're all set. Happy coding!! ;)\n"))
+}
+
+/**
+ * 创建文件.gitignore文件
+ */
+function createGitignore() {
+  mv(
+    path.resolve(__dirname, "./gitignore.txt"),
+    path.resolve(__dirname, "..", '.gitignore')
+  )
 }
 
 /**

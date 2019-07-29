@@ -5,17 +5,24 @@
   "main": "dist/--libraryname--.umd.js",
   "module": "dist/--libraryname--.es5.js",
   "typings": "dist/types/--libraryname--.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "--username-- <--usermail-->",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
     "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts",
     "start": "rollup -c rollup.config.ts -w",
     "postinstall": "ts-node tools/init.ts"
-  },
-  "author": "--username-- <--usermail-->",
-  "license": "MIT",
-  "engines": {
-    "node": ">=8.0.0"
   },
   "devDependencies": {
     "@types/node": "^12.6.8",
